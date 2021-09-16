@@ -37,7 +37,7 @@ public class ClienteController {
 
 			clientes = clienteService.findAllClientes();
 
-			if (clientes != null) {
+			if (clientes.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
 

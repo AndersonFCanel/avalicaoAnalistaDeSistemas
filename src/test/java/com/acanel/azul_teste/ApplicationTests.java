@@ -112,7 +112,7 @@ class ApplicationTests {
 	@Test
 	void testGetALL() {
 		URI targetUrl = UriComponentsBuilder.fromUriString("/api/clientes").build().encode().toUri();
-		assertThat(this.restTemplate.getForObject(targetUrl, ResponseEntity.class));
+		assertThat(this.restTemplate.getForObject(targetUrl, Object.class));
 	}
 
 	@Test
@@ -123,7 +123,7 @@ class ApplicationTests {
 
 		URI targetUrl = UriComponentsBuilder.fromUriString("/api/clientes").queryParam("cpf", "12345678901").build()
 				.encode().toUri();
-		assertThat(this.restTemplate.getForObject(targetUrl, ResponseEntity.class));
+		assertThat(this.restTemplate.getForObject(targetUrl, Object.class));
 	}
 
 }

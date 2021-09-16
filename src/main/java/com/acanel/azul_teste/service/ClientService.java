@@ -64,22 +64,13 @@ public class ClientService {
 		;
 
 		log.debug("clientes", clientes);
+		return clientes;
 
-		if (clientes.isEmpty()) {
-			return null;
-		} else {
-			return clientes;
-		}
 	}
 
 	public Cliente findByCPF(String cpf) {
 
-		try {
-			return clienteRepository.findOneByCpf(cpf);
-		} catch (Exception e) {
-			log.error("Erro: " + e.getMessage() + " / Cause: " + e.getCause());
-			return null;
-		}
+		return clienteRepository.findOneByCpf(cpf);
 
 	}
 
