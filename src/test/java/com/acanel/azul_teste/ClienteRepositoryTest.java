@@ -40,7 +40,7 @@ public class ClienteRepositoryTest {
 
 		entityManager.persist(cliente);
 
-		Cliente _cliente = clienteRepository.findOneByCpf("21111111111");
+		Cliente _cliente = clienteRepository.findOneByEmail("teste@teste.com");
 		assertThat(_cliente.getId()).isGreaterThan(0);
 	}
 
@@ -62,7 +62,7 @@ public class ClienteRepositoryTest {
 	}
 
 	@Test
-	public void findClienteByCPF() {
+	public void findClienteByEmail() {
 
 		Cliente cliente = new Cliente();
 
@@ -72,7 +72,7 @@ public class ClienteRepositoryTest {
 
 		entityManager.persist(cliente);
 
-		assertThat(clienteRepository.findOneByCpf("21111111113").getEmail()).isEqualTo("teste3@teste.com");
+		assertThat(clienteRepository.findOneByEmail("teste3@teste.com").getEmail()).isEqualTo("teste3@teste.com");
 	}
 
 }

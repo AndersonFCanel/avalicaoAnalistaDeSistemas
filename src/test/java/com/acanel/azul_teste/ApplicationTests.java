@@ -100,12 +100,12 @@ class ApplicationTests {
 	}
 
 	@Test
-	void testFindClientesByCpf() {
+	void testFindClientesByEmail() {
 
 		Endereco endereco = new Endereco("Teste logradouro", "25060040", "teste", "teste", "teste", "teste", "teste");
 		clienteService.createCliente(new Cliente("11111131111", "teste3233@teste", "teste", endereco));
 
-		assertThat(clienteService.findByCPF("11111131111"));
+		assertThat(clienteService.findByEmail("teste3233@teste"));
 
 	}
 
@@ -116,12 +116,12 @@ class ApplicationTests {
 	}
 
 	@Test
-	void testGetByCpf() {
+	void testGetByEmail() {
 
 		Endereco endereco = new Endereco("Teste logradouro", "25060040", "teste", "teste", "teste", "teste", "teste");
 		clienteService.createCliente(new Cliente("12345678901", "teste3s233@teste", "teste", endereco));
 
-		URI targetUrl = UriComponentsBuilder.fromUriString("/api/clientes").queryParam("cpf", "12345678901").build()
+		URI targetUrl = UriComponentsBuilder.fromUriString("/api/clientes").queryParam("email", "teste3s233@teste").build()
 				.encode().toUri();
 		assertThat(this.restTemplate.getForObject(targetUrl, Object.class));
 	}

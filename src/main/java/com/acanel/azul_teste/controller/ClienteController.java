@@ -48,22 +48,24 @@ public class ClienteController {
 		}
 	}
 
-	@GetMapping("/clientes/{cpf}")
-	public ResponseEntity<Object> getClientelByCPF(@PathVariable("cpf") String cpf) {
-		if (cpf.length() == 11) {
-			try {
+	@GetMapping("/clientes/{email}")
+	public ResponseEntity<Object> getClientelByEmail(@PathVariable("email") String email) {
 
-				Cliente clienteData = clienteService.findByCPF(cpf);
+		try {
+
+			Cliente clienteData = clienteService.findByEmail(email);
+
+			if (clienteData == null)
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body("EMAIL: " + email);
+			else
 				return new ResponseEntity<>(clienteData, HttpStatus.OK);
 
-			} catch (Exception e) {
-				log.error("Erro: " + e.getMessage() + " / Cause: " + e.getCause());
-				// return new ResponseEntity<>(HttpStatus.NOT_FOUND );
-				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-						.body("Erro: " + e.getMessage() + " / Cause: " + e.getCause());
-			}
+		} catch (Exception e) {
+			log.error("Erro: " + e.getMessage() + " / Cause: " + e.getCause());
+			// return new ResponseEntity<>(HttpStatus.NOT_FOUND );
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body("Erro: " + e.getMessage() + " / Cause: " + e.getCause());
 		}
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("CPF Invalido: " + cpf);
 
 	}
 

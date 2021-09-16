@@ -68,9 +68,9 @@ public class ClientService {
 
 	}
 
-	public Cliente findByCPF(String cpf) {
+	public Cliente findByEmail(String email) {
 
-		return clienteRepository.findOneByCpf(cpf);
+		return clienteRepository.findOneByEmail(email);
 
 	}
 

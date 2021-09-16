@@ -9,7 +9,7 @@ POST: http://localhost:8080/api/clientes
 ```json
 {
   "cpf": "11111111111",
-  "email": "string",
+  "email": "andersonteste@gmail.com",
   "endereco": {
     "cep": "25060040"
   },
@@ -19,12 +19,12 @@ POST: http://localhost:8080/api/clientes
 
 Ao ser consultado o valor deverá constar desta forma:
 
-GET http://localhost:8080/api/clientes/11111111111
+GET http://localhost:8080/api/clientes/andersonteste@gmail.com
 
 ```json
 {
   "cpf": "11111111111",
-  "email": "string",
+  "email": "andersonteste@gmail.com",
   "nome": "string",
   "endereco": {
     "logradouro": "Rua Capitão Damasceno",
@@ -81,7 +81,7 @@ curl -X POST "http://localhost:8080/api/clientes" -H "accept: */*" -H "Content-T
 curl -X GET "http://localhost:8080/api/clientes" -H "accept: */*"
 ```
 
-##### GET getClienteByCPF {cpf}:
+##### GET getClienteByEmail {email}:
 ```
-curl -X GET "http://localhost:8080/api/clientes/11111111111" -H "accept: */*"
+curl -X GET "http://localhost:8080/api/clientes/andersonteste%40gmail.com" -H "accept: */*"
 ```
