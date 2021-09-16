@@ -1,5 +1,5 @@
 # Teste Analista de Sistemas
-# Building and Operation Rest API with Spring Data JPA Swagger JAX-RS
+# Building an Operation Rest API with Spring Data JPA Swagger JAX-RS
 
 
 Esta aplicação tem como funcionalidade receber via http JSON no formato abaixo, onde através do campo cep é alimentada a tabela endereço, a qual é compostas por campos provenientes da API viacep.com.br/ws/{cep}/json/.
